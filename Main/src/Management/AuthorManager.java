@@ -10,17 +10,17 @@ import java.util.List;
 
 
 public class AuthorManager {
-    private static AuthorManager instance;
-    static AuthorManager getInstance(){
-        if (instance == null) instance = new AuthorManager();
-        return instance;
-    }
+//    private static AuthorManager instance;
+//    static AuthorManager getInstance(){
+//        if (instance == null) instance = new AuthorManager();
+//        return instance;
+//    }
      
     private List<Author> authors = new ArrayList<>(); 
     
     public AuthorManager(){
-        FileManager fileManager = FileManager.getInstance();
-        List<List<String>> data = fileManager.readFile("./authors.dat");
+        FileManager fileManager = new FileManager();
+        List<List<String>> data = fileManager.readFile("src/Management/authors.dat");
         for (List<String> lineData : data){
             Author author = new Author(Integer.parseInt(lineData.get(0)), lineData.get(1));
             authors.add(author);
@@ -79,7 +79,7 @@ public class AuthorManager {
     }
 
     public void save(){
-        FileManager fileManager = FileManager.getInstance();
+        FileManager fileManager = new FileManager();
         fileManager.save("authors.dat");
     }
     

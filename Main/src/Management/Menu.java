@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Management;
 
 import java.util.Scanner;
@@ -10,9 +6,11 @@ import java.util.Scanner;
 public class Menu {
 
     Scanner sc = new Scanner(System.in);
-    BookManager bookManager = BookManager.getInstance();
-    AuthorManager authorManager = AuthorManager.getInstance();
-
+    BookManager bookManager = new BookManager();
+    AuthorManager authorManager = new AuthorManager();
+//    BookManager bookManager = BookManager.getInstance();
+//    AuthorManager authorManager = AuthorManager.getInstance();
+    
     public void updateBookName(){//3 cập nhật
         System.out.println("Input book's name renamed: ");
         String currentName = sc.nextLine();
@@ -74,7 +72,8 @@ public class Menu {
                     return;
 
                 case 1: // hiển thị tất cả sách
-                    bookManager.displayAllBook();
+                   
+                    bookManager.BookManager();
                     break;
 
                 case 2: // tạo
@@ -109,8 +108,11 @@ public class Menu {
                     
                 case 6:
                     bookManager.BookManager();
-                    
-
+                    break;
+                
+                default: 
+                    System.out.println("Input again!!");
+                    System.out.println("Choice number 0 to 6\n");
             }
         }
     }

@@ -15,11 +15,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileManager {
-    private static FileManager instance;
-    static FileManager getInstance(){
-        if(instance == null) instance = new FileManager();
-        return instance;
-    }
+//    private static FileManager instance;
+//    static FileManager getInstance(){
+//        if(instance == null) instance = new FileManager();
+//        return instance;
+//    }
     
     public List<List<String>> readFile(String fileName){
         try {
