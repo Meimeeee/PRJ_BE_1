@@ -10,12 +10,6 @@ import java.util.List;
 
 
 public class AuthorManager {
-//    private static AuthorManager instance;
-//    static AuthorManager getInstance(){
-//        if (instance == null) instance = new AuthorManager();
-//        return instance;
-//    }
-     
     private List<Author> authors = new ArrayList<>(); 
     
     public AuthorManager(){

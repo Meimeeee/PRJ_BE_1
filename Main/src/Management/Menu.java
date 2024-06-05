@@ -7,9 +7,7 @@ public class Menu {
 
     Scanner sc = new Scanner(System.in);
     BookManager bookManager = new BookManager();
-    AuthorManager authorManager = new AuthorManager();
-//    BookManager bookManager = BookManager.getInstance();
-//    AuthorManager authorManager = AuthorManager.getInstance();
+    AuthorManager authorManager = new AuthorManager();\
     
     public void updateBookName(){//3 cập nhật
         System.out.println("Input book's name renamed: ");

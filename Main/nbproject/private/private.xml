@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/JAVA/Prj_be1/Main/src/main/Book.java</file>
-            <file>file:/E:/JAVA/Prj_be1/Main/src/main/Author.java</file>
-            <file>file:/E:/JAVA/Prj_be1/Main/src/main/AuthorManager.java</file>
-            <file>file:/E:/JAVA/Prj_be1/Main/src/main/Menu.java</file>
-            <file>file:/E:/JAVA/Prj_be1/Main/src/main/Main.java</file>
-            <file>file:/E:/JAVA/Prj_be1/Main/src/main/BookManager.java</file>
-            <file>file:/E:/JAVA/Prj_be1/Main/src/main/FileManager.java</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/Menu.java</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/FileManager.java</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/DatFormat.java</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/Main.java</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/books.dat</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/AuthorManager.java</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/Author.java</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/Book.java</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/authors.dat</file>
+            <file>file:/E:/JAVA/Prj_be1/Main/src/Management/BookManager.java</file>
         </group>
     </open-files>
 </project-private>
