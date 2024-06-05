@@ -54,11 +54,11 @@ public class FileManager {
         }
     }
     
-    public void save(String fileName) {
-        List<List<String>> data = new ArrayList<>();
-        for (List<String> lineData : data){
-            data.add(lineData);
-        }
-
-    }
+//    public void save(String fileName) {
+//        List<List<String>> data = new ArrayList<>();
+//        for (List<String> lineData : data){
+//            data.add(lineData);
+//        }
+//
+//    }
 }

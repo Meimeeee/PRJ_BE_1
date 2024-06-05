@@ -22,6 +22,7 @@ public class AuthorManager {
     }
     
     public Author findByAuthorID(int authorID){
+
         for(Author author : authors){
             if (author.getAuthorID()== authorID){
                 return author;
@@ -31,6 +32,7 @@ public class AuthorManager {
     }
     
     public Author findByAuthorName(String authorName){
+
         for(Author author : authors){
             if (author.getAuthorName().equals(authorName)){
                 return author;
@@ -38,7 +40,7 @@ public class AuthorManager {
         }
         return null;
     }
-    
+
     public Author addAuthor(Author a){
         authors.add(a);
         return a;
@@ -74,7 +76,7 @@ public class AuthorManager {
 
     public void save(){
         FileManager fileManager = new FileManager();
-        fileManager.save("authors.dat");
+        fileManager.writeFile("src/Management/authors.dat", new ArrayList<>());
     }
     
     @Override

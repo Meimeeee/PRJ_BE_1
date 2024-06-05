@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Author implements DatFormat{
-    private final int authorID;
+    private int authorID;
     private String authorName;
     private List<Book> books;
 
@@ -34,9 +34,9 @@ public class Author implements DatFormat{
         this.books = new ArrayList<>();
     }
 
-    public Book wirteBook(int BookID, String bookName, double price) {
-        BookManager bookManager = BookManager.getInstance();
-        Book b = bookManager.createBook(BookID, bookName, this, price);
+    public Book wirteBook(int BookID, String bookName, int count, double price) {
+        BookManager bookManager = new BookManager();
+        Book b = bookManager.createBook(BookID, bookName, this, count, price);
         return b;
     }
    

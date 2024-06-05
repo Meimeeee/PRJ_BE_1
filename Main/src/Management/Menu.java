@@ -7,7 +7,7 @@ public class Menu {
 
     Scanner sc = new Scanner(System.in);
     BookManager bookManager = new BookManager();
-    AuthorManager authorManager = new AuthorManager();\
+    AuthorManager authorManager = new AuthorManager();
     
     public void updateBookName(){//3 cập nhật
         System.out.println("Input book's name renamed: ");
@@ -22,15 +22,18 @@ public class Menu {
         while (true) {
             System.out.println("1. Search book by Author's Name ");
             System.out.println("2. Search book by Book's Name ");
+            System.out.println("0. Exit");
             int choice = sc.nextInt();
             sc.nextLine();
 
             switch (choice) {
+                case 0: 
+                    return;
                 case 1:
                     System.out.println("Input Author's Name: ");
                     Author author = authorManager.findByAuthorName(sc.nextLine());
                     if (author == null) {
-                        System.out.println("Author's name doesn't exist");
+                        System.out.println("Author's name doesn't exist\n");
                     } else {
                         System.out.println(author);
                     }
@@ -39,10 +42,11 @@ public class Menu {
                     System.out.println("Input Book's Name: ");
                     Book book = bookManager.findByBookName(sc.nextLine());
                     if (book == null) {
-                        System.out.println("Book' name doesn't exist");
+                        System.out.println("Book' name doesn't exist\n");
                     } else {
                         System.out.println(book);
                     }
+                    break;
             }
         }
 
@@ -52,7 +56,6 @@ public class Menu {
 
         while (true) {
             System.out.println("HKT Book Store Management");
-            System.out.println("ENTER YOUR CHOICE: ");
             System.out.println("1. Show book list");
             System.out.println("2. Add new book");
             System.out.println("3. Update book's Name");
@@ -60,6 +63,7 @@ public class Menu {
             System.out.println("5. Search book");
             System.out.println("6. Store data to file");
             System.out.println("0. Quit");
+            System.out.println("ENTER YOUR CHOICE: ");
 
             int choice = sc.nextInt();
             sc.nextLine();// không nhận Enter
@@ -71,41 +75,64 @@ public class Menu {
 
                 case 1: // hiển thị tất cả sách
                    
-                    bookManager.BookManager();
+                    bookManager.printAllBook();
                     break;
 
-                case 2: // tạo
-                    System.out.println("Enter BookID: ");
+                case 2: // tạo thêm sách mới
+                    System.out.print("Enter BookID: ");
                     int ID = sc.nextInt();
+                    sc.nextLine(); //xóa bộ nhớ đệm
+
+                    Book b = bookManager.findByBookID(ID);
+                    if(b != null){
+                        System.out.println("Duplicate Book ID! Please enter a unique ID.\n");
+                        break;
+                    }
+
                     System.out.println("Enter Book's Name: ");
                     String bookName = sc.nextLine();
+                    
                     System.out.println("Enter Author");
                     System.out.println("Enter AuthorID: ");
                     int authorID = sc.nextInt();
+                    sc.nextLine();
+                    //if (authorID == authorManager.findByAuthorID());
+                    Author a = authorManager.findByAuthorID(authorID);
+                    
                     System.out.println("Enter Author's Name: ");
                     String authorName = sc.nextLine();
+                    sc.nextLine();
+
+                    System.out.println("Enter book's count: ");
+                    int count = sc.nextInt();
+                    sc.nextLine();
+
                     System.out.println("Enter Book's price: ");
                     double price = sc.nextDouble();
+                    sc.nextLine();
 
                     Author author = new Author(authorID, authorName);
-                    bookManager.createBook(ID, bookName, author, price);
+                    bookManager.createBook(ID, bookName, author, count, price);
+                    System.out.println("Book added successfully!\n");
+                    bookManager.save();
                     break;
 
-                case 3: //Cập nhập 
+                case 3: //Cập nhập sách
                     updateBookName();
                     break;
                     
-                case 4:
+                case 4: //Xóa sách
                     System.out.println("Enter book's name: ");
                     bookManager.RemoveBook(sc.nextLine());
                     break;
 
-                case 5:// tìm kiếm
+                case 5:// tìm kiếm sách
                     searchBook();
                     break;
                     
-                case 6:
-                    bookManager.BookManager();
+                case 6://Lưu dữ liệu vào file
+                    bookManager.save();
+                    System.out.println("SAVED!!");
                     break;
                 
                 default: 
