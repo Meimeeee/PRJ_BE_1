@@ -11,8 +11,13 @@ import java.util.List;
 
 public class AuthorManager {
     private List<Author> authors = new ArrayList<>(); 
+
+    public AuthorManager() {
+        readAuthor();
+    }
     
-    public AuthorManager(){
+    
+    protected void readAuthor(){
         FileManager fileManager = new FileManager();
         List<List<String>> data = fileManager.readFile("src/Management/authors.dat");
         for (List<String> lineData : data){
@@ -47,9 +52,9 @@ public class AuthorManager {
     }
     
     private List<Book> books = new ArrayList<>();
+
     public void removeAuthor(Author author){
         authors.remove(author);
-        
         List<Book> BookRemoved = new ArrayList<>();
         for(Book book : books){
             if(book.getAuthor().equals(author)){
@@ -73,10 +78,17 @@ public class AuthorManager {
             System.out.println(author);
         }
     }
-
+    
     public void save(){
+        List<List<String>> data = new ArrayList<>();
         FileManager fileManager = new FileManager();
-        fileManager.writeFile("src/Management/authors.dat", new ArrayList<>());
+        for(Author author : authors){
+            List<String> lineData = new ArrayList<>();
+            lineData.add(String.valueOf(author.getAuthorID()));
+            lineData.add(author.getAuthorName());
+            data.add(lineData);
+        }
+        fileManager.writeFile("src/Management/authors.dat", data);
     }
     
     @Override

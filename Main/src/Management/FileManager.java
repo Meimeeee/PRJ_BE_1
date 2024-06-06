@@ -5,6 +5,7 @@
  */
 package Management;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,11 +29,9 @@ public class FileManager {
                     data.add(lineData);
                 }
             }
-            
             sc.close();
             fis.close();
                 return data;
-                   
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
@@ -48,17 +47,10 @@ public class FileManager {
                 String line = String.join(",", lineData);
                 pw.println(line);
             }
+            pw.flush();
             pw.close();
         } catch (IOException ex){
             ex.printStackTrace();
         }
     }
-    
-//    public void save(String fileName) {
-//        List<List<String>> data = new ArrayList<>();
-//        for (List<String> lineData : data){
-//            data.add(lineData);
-//        }
-//
-//    }
 }

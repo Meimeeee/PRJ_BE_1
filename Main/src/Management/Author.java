@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Author implements DatFormat{
-    private int authorID;
+    private final int authorID;
     private String authorName;
     private List<Book> books;
 
@@ -45,13 +45,15 @@ public class Author implements DatFormat{
         b.setAuthor(this);
     }
 
-    public void removeBook(Book  book){
+    public void removeBook(Book book){
         books.remove(book);
     }
 
-    public void printBook(){
+    public void printAllBook(){
         for(Book b : books){
-            System.out.println(b);
+            if(b.getAuthor() == this) {
+                System.out.println(b);
+            }
         }
     }
     

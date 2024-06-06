@@ -14,14 +14,13 @@ import java.util.List;
  */
 public class Book implements DatFormat{
     
-    private int BookID ;
+    private final int BookID ;
     private String bookName;
     private Author author;
     private double price;
     private int count;
 
-    public Book() {
-    }
+
     
     public Book(int BookID, String bookName, Author author,int count ,double price) {
         this.BookID = BookID;
